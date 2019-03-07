@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class Bullet : MonoBehaviour
 {
     public float speed = 5;
@@ -15,7 +16,24 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        float teta = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, teta + 180);
         rb.AddForce(direction.normalized * speed, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Rocket")
+        {
+            StartCoroutine(Explode());
+
+        }
+    }
+
+    private IEnumerator Explode()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()

@@ -269,7 +269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4472241970486614, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 4472241970486614, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -281,11 +281,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4472241970486614, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4472241970486614, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4472241970486614, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_LocalRotation.w
@@ -297,6 +297,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1881218901449084, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979737478454716, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881218901449084, guid: 4f26defe6e610aa45a9d38aeb10133f3, type: 2}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -486,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28895a0a98eeb6d41bf1de4640d7c74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1521543579495658, guid: 23cbda482d429ed478f831866aa894f4, type: 2}
+  bullet: {fileID: 1881936562605888, guid: aeaaf438444fc654bb5e84b0152afa66, type: 2}
 --- !u!1 &1933614684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1881218901449084, guid: 4f26defe6e610aa45a9d38aeb10133f3,
@@ -503,7 +511,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.82
-  m_Center: {x: 0.02, y: 4.66, z: 0}
+  m_Center: {x: 0.02, y: 0.82, z: 0}
 --- !u!1 &2007754967
 GameObject:
   m_ObjectHideFlags: 0

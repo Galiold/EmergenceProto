@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
 public class Rocket : MonoBehaviour
 {
     public float speed = 5;
     private Vector3 direction;
     private Rigidbody rb;
-    public float teta;
 
     private void Awake()
     {
@@ -17,9 +17,14 @@ public class Rocket : MonoBehaviour
     }
     private void Start()
     {
-        teta = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg + 90;
+        float teta = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg + 90;
         transform.eulerAngles = new Vector3(0, 0, teta);
         rb.GetComponent<Rigidbody>().velocity = -(speed * direction);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
     public Vector3 Direction
@@ -29,5 +34,7 @@ public class Rocket : MonoBehaviour
             direction = value;
         }
     }
+
+
 
 }

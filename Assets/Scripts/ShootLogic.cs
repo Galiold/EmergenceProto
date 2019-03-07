@@ -5,19 +5,26 @@ using UnityEngine.EventSystems;
 
 public class ShootLogic : MonoBehaviour, IPointerDownHandler
 {
-    //TODO: Reload Time for player
     //TODO: Explode Rockets when they collide eachother
-    //TODO: Explode Bullets when they collide with Rockets
     //TODO: Different Bullets
+    //TODO: Player Life
+    //TODO: Block
+    //TODO: Wave
+
 
     [SerializeField]
     private GameObject bullet;
     private bool canShoot = true;
+    private Vector3 instancePosition;
+    private void Awake()
+    {
+        instancePosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+    }
     public void OnPointerDown(PointerEventData data)
     {
         if (canShoot)
         {
-            GameObject b = Instantiate(bullet, Vector3.zero, Quaternion.identity);
+            GameObject b = Instantiate(bullet, instancePosition, Quaternion.identity);
             Vector3 direction = Camera.main.ScreenToWorldPoint(new Vector3(data.position.x, data.position.y, -Camera.main.transform.position.z));
             b.GetComponent<Bullet>().Direction = direction;
             canShoot = false;

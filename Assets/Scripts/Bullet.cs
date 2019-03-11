@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
         float teta = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, teta + 180);
         rb.AddForce(direction.normalized * speed, ForceMode.Impulse);
+        Destroy(gameObject, 20);
     }
 
     private void OnCollisionEnter(Collision other)

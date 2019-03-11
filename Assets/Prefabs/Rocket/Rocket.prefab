@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4473481590559812}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Rocket_Ship_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 54331639051048216}
   - component: {fileID: 114904963555962500}
   - component: {fileID: 136751144936453450}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Rocket
   m_TagString: Rocket
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4822457795473896}
   - component: {fileID: 33180760504067874}
   - component: {fileID: 23555319781521990}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Rocket_Ship_Circle.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87df5a838bcd0834eb3a5a93bc3f9703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.5
+  damage: 5
 --- !u!136 &136751144936453450
 CapsuleCollider:
   m_ObjectHideFlags: 1

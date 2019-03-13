@@ -12,7 +12,6 @@ public class Rocket : MonoBehaviour
     public float damage = 5;
     private Vector3 direction;
     private Rigidbody rb;
-    private bool hasHit;
     private GameControl gameControl;
 
     private void Awake()
@@ -25,7 +24,7 @@ public class Rocket : MonoBehaviour
     {
         float teta = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg + 90;
         transform.eulerAngles = new Vector3(0, 0, teta);
-        rb.GetComponent<Rigidbody>().velocity = -(speed * direction);
+        rb.GetComponent<Rigidbody>().velocity = -(speed * direction.normalized);
         gameControl.AddRocket(gameObject);
     }
 
@@ -53,13 +52,6 @@ public class Rocket : MonoBehaviour
         set
         {
             direction = value;
-        }
-    }
-    public bool HasHit
-    {
-        get
-        {
-            return hasHit;
         }
     }
 }

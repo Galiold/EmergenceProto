@@ -23,7 +23,10 @@ public class Block : MonoBehaviour
     private void Start()
     {
         StartCoroutine(CanMove());
-        gameObject.transform.localScale = new Vector3(Random.Range(5, 10), Random.Range(15, 20), 5);
+
+        gameObject.transform.localScale = Random.Range(0, 2) == 1 ?
+         new Vector3(5, Random.Range(15, 20), 1) :
+         new Vector3(Random.Range(15, 20), 5, 1);
     }
 
     private void OnMouseDrag()

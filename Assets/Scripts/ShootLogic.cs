@@ -5,11 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ShootLogic : MonoBehaviour, IPointerDownHandler
 {
-    //TODO: Explode Rockets when they collide eachother
     //TODO: Different Bullets
-    //TODO: Player Life
-    //TODO: Block
-    //TODO: Wave
 
 
     [SerializeField]
@@ -27,14 +23,22 @@ public class ShootLogic : MonoBehaviour, IPointerDownHandler
             GameObject b = Instantiate(bullet, instancePosition, Quaternion.identity);
             Vector3 direction = Camera.main.ScreenToWorldPoint(new Vector3(data.position.x, data.position.y, -Camera.main.transform.position.z));
             b.GetComponent<Bullet>().Direction = direction;
-            canShoot = false;
             StartCoroutine(Reload());
         }
     }
 
     private IEnumerator Reload()
     {
+        canShoot = false;
         yield return new WaitForSeconds(0.5f);
         canShoot = true;
+    }
+
+    public bool CanShoot
+    {
+        set
+        {
+            canShoot = value;
+        }
     }
 }

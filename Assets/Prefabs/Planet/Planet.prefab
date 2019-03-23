@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4956191938786112}
   - component: {fileID: 33741976732814716}
   - component: {fileID: 23732914525420464}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProbodobodyneStayputnik_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979737478454716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProbodobodyneStayputnik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,9 +51,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4472241970486614}
-  m_Layer: 0
+  - component: {fileID: 135692410992300618}
+  - component: {fileID: 114339633283609330}
+  m_Layer: 10
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881218901449084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 226.07863, y: -3419.307, z: 12.849894}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4979737478454716}
@@ -92,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798545671029182}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -4.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4956191938786112}
@@ -141,3 +143,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235439439895450}
   m_Mesh: {fileID: 4300000, guid: 594906a7a4edfdf46acf8eb8d5cbe29b, type: 3}
+--- !u!114 &114339633283609330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881218901449084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b86e18852023c46a8cbf639e660da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  lifeBar: {fileID: 0}
+--- !u!135 &135692410992300618
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881218901449084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.82
+  m_Center: {x: 0.02, y: 0.82, z: 0}

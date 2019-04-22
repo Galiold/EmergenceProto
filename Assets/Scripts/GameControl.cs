@@ -7,7 +7,7 @@ public class GameControl : MonoBehaviour
 {
     public GameObject rocket;
     public GameObject block;
-    public int numberOfRocketsForEachRound = 5;
+    public int numberOfRocketsForEachRound = 1;
     public float eachRoundInterval;
     public Text roundUI;
     private int counter = 0;

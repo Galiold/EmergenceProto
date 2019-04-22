@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
 public class Rocket : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class Rocket : MonoBehaviour
     private const string PLAYER_TAG = "Player";
     public float speed = 5;
     public float damage = 5;
+    public Vector3 transformUp;
     private Vector3 direction;
     private Rigidbody rb;
     private GameControl gameControl;
@@ -20,30 +20,32 @@ public class Rocket : MonoBehaviour
         rb.useGravity = false;
         gameControl = GameObject.FindObjectOfType<GameControl>();
     }
+
     private void Start()
     {
         float teta = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg + 90;
         transform.eulerAngles = new Vector3(0, 0, teta);
-        rb.GetComponent<Rigidbody>().velocity = -(speed * direction.normalized);
+        rb.velocity = -(speed * direction.normalized);
         gameControl.AddRocket(gameObject);
+    }
+
+    private void FixedUpdate()
+    {
+        // direction = new Vector3(Mathf.Sin(transform.forward), Mathf.Cos(transform.rotation.z), 0).normalized;
+        // rb.velocity = transform.up * speed;
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == ROCKET_TAG)
-        {
-            Destroy(gameObject, 0.1f);
-        }
-        else if (other.gameObject.tag == PLAYER_TAG)
+        if (other.gameObject.tag == PLAYER_TAG)
         {
             other.gameObject.GetComponent<Player>().DamagePlayer(damage);
-            Destroy(gameObject, 0.1f);
         }
-        gameControl.DeleteRocket(gameObject);
     }
 
     private void OnBecameInvisible()
     {
+        gameControl.DeleteRocket(gameObject);
         Destroy(gameObject);
     }
 
@@ -54,4 +56,5 @@ public class Rocket : MonoBehaviour
             direction = value;
         }
     }
+
 }

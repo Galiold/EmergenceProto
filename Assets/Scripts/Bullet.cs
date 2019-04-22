@@ -6,6 +6,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 5;
+    public float damageRadius = 2;
+    public Vector2 offset;
+    public LayerMask layer;
+    public float explosionForce;
     private Vector3 direction;
     private Rigidbody rb;
 
@@ -21,20 +25,22 @@ public class Bullet : MonoBehaviour
         rb.AddForce(direction.normalized * speed, ForceMode.Impulse);
         Destroy(gameObject, 20);
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Rocket")
         {
-            StartCoroutine(Explode());
-
+            Destroy(gameObject, 0.2f);
         }
-    }
 
-    private IEnumerator Explode()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        Collider[] rockets = Physics.OverlapSphere(transform.position, damageRadius, layer);
+
+
+        foreach (var rocket in rockets)
+        {
+            // if (rocket.gameObject != other.gameObject)
+            rocket.GetComponent<Rigidbody>().AddForce(rocket.gameObject.transform.position - transform.position, ForceMode.Impulse);
+        }
+
     }
 
     private void OnBecameInvisible()
@@ -48,5 +54,10 @@ public class Bullet : MonoBehaviour
         {
             direction = value;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position + new Vector3(offset.x, offset.y, 0), damageRadius);
     }
 }

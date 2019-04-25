@@ -28,19 +28,12 @@ public class Rocket : MonoBehaviour
         rb.velocity = -(speed * direction.normalized);
         gameControl.AddRocket(gameObject);
     }
-
-    private void FixedUpdate()
-    {
-        // direction = new Vector3(Mathf.Sin(transform.forward), Mathf.Cos(transform.rotation.z), 0).normalized;
-        // rb.velocity = transform.up * speed;
-    }
-
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == PLAYER_TAG)
-        {
-            other.gameObject.GetComponent<Player>().DamagePlayer(damage);
-        }
+        if (other.gameObject.tag != PLAYER_TAG) return;
+        other.gameObject.GetComponent<Player>().DamagePlayer(damage);
+        Destroy(gameObject, .2f);
+       
     }
 
     private void OnBecameInvisible()

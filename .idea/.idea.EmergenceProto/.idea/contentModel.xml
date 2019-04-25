@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Arman\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Arman\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_EmergenceProto.-1362494677.00" t="ExcludeRecursive" />
+    <e p="G:\Ali\Unity Warehouse\EmergenceProto" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Block.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
+          <e p="GameControl.cs" t="Include" />
+          <e p="MissileBlast.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="Rocket.cs" t="Include" />
+          <e p="ShootLogic.cs" t="Include" />
+        </e>
+      </e>
+      <e p="EmergenceProto.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

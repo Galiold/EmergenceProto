@@ -8,14 +8,16 @@ public class Bullet : MonoBehaviour
     public float speed = 5;
     public float damageRadius = 2;
     public Vector2 offset;
-    public LayerMask layer;
-    public float explosionForce;
     private Vector3 direction;
     private Rigidbody rb;
+
+    public GameObject blast;
+    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        blast.SetActive(false);
     }
 
     private void Start()
@@ -29,16 +31,11 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Rocket")
         {
-            Destroy(gameObject, 0.2f);
-        }
-
-        Collider[] rockets = Physics.OverlapSphere(transform.position, damageRadius, layer);
-
-
-        foreach (var rocket in rockets)
-        {
-            // if (rocket.gameObject != other.gameObject)
-            rocket.GetComponent<Rigidbody>().AddForce(rocket.gameObject.transform.position - transform.position, ForceMode.Impulse);
+            blast.SetActive(true);
+            blast.GetComponent<MissileBlast>().DamageRadius = damageRadius;
+            
+            blast.transform.parent = null;
+            Destroy(gameObject);
         }
 
     }
